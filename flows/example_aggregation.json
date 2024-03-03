@@ -1,0 +1,13 @@
+{
+    "_id": null,
+    "average_acousticness": 0.22437057142857142,
+    "average_danceability": 0.7889714285714285,
+    "average_energy": 0.6241714285714286,
+    "average_instrumentalness": 0.0009034117142857142,
+    "average_liveness": 0.14901714285714288,
+    "average_loudness": -6.773142857142857,
+    "average_speechiness": 0.13974571428571428,
+    "average_tempo": 109.02425714285715,
+    "average_valence": 0.5927142857142857,
+    "average_key": 4.857142857142857
+}
