@@ -1,6 +1,8 @@
 from flows.mongo_flow import load_json_data, mongo_clean_data, mongo_aggregation
 from flows.spark_flow import load_data, spark_df, get_spark_session
 
+# TODO: Download spotify data into `data/spotify_data.json`
+
 mongo_params = {
     "client_url": "mongodb://localhost:27017/",
     "db_name": "test",
@@ -15,3 +17,5 @@ mongo_aggregation(**mongo_params)
 
 sc = get_spark_session(name = "Spotify_Recommendation")
 spark_df(sc)
+
+# TODO: Add recommendation model training and pred
