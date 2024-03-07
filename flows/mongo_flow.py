@@ -25,7 +25,7 @@ def load_json_data(client_url: str, db_name: str, collection_name: str, file_pat
         collection.insert_many(data)
 
 
-def mongo_clean_data(client_url: str, db_name: str, collection_name: str, output_path:str) -> None:
+def mongo_clean_data(client_url: str, db_name: str, collection_name: str, file_path:str) -> None:
     client = pymongo.MongoClient(client_url)
     db = client[db_name]
     collection = db[collection_name]
@@ -43,7 +43,8 @@ def mongo_clean_data(client_url: str, db_name: str, collection_name: str, output
     ]
 
     result = collection.aggregate(feature_extraction_pipeline)
-    save_mongo_data(list(result), output_path)
+
+    save_mongo_data(list(result), file_path)
 
 
 def mongo_aggregation(client_url: str, db_name: str, collection_name: str) -> None:

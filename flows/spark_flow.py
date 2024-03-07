@@ -39,6 +39,9 @@ def spark_df(spark: SparkSession):
     
     save_data(df_lag.collect())
 
+def get_spark_session(name: str = "SparkDF"):
+    return SparkSession.builder.appName(name).getOrCreate()
+
 if __name__ == "__main__":
     sc = SparkSession.builder.appName("SparkDF").getOrCreate()
     spark_df(sc)
