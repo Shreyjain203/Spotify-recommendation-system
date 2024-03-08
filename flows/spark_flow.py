@@ -23,7 +23,7 @@ def save_data(data, file_path:str, local=True):
 
 def spark_df(spark: SparkSession, file_path: str):
     """
-    Create a Spark DataFrame from JSON data and return the count of items
+    Create a Spark DataFrame from JSON data and save a formatted dataset
     """
     data = load_data()
     df = spark.createDataFrame(data)
