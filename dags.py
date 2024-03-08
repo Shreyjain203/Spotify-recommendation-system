@@ -33,8 +33,6 @@ def upload_data():
     data_dump = read_from_gcs.read_from_gcs(filename = "data_dump.json")
     write_to_monogo_db.upload_data_to_mongo(data_dump, connection_string, database_name, collection_name)
 
-MONGO_CONNECTION_STRING = "mongodb://localhost:27017/"
-
 with DAG(dag_id="msds697", schedule_interval='@daily', start_date=datetime(2024, 1, 1)) as dag:
     get_data_dag = PythonOperator(
         task_id="get_data_dag",
