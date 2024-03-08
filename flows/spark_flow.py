@@ -13,17 +13,15 @@ def load_data(local=True):
         return
 
 
-def save_data(data, local=True):
+def save_data(data, file_path:str, local=True):
     if local:
-        # Save to csv
-        file_path = 'spark_features.json'
         with open(file_path, 'w') as file:
             file.write(json.dumps(data, indent=4))
     else:
         print('NOT IMPLEMENTED :: Save data to GCP')
         pass
 
-def spark_df(spark: SparkSession):
+def spark_df(spark: SparkSession, file_path: str):
     """
     Create a Spark DataFrame from JSON data and return the count of items
     """
@@ -37,12 +35,12 @@ def spark_df(spark: SparkSession):
 
     df_lag = df_lag.filter(df_lag["prev_song_id"].isNotNull())
     
-    save_data(df_lag.collect())
+    save_data(df_lag.collect(), file_path)
 
 def get_spark_session(name: str = "SparkDF"):
     return SparkSession.builder.appName(name).getOrCreate()
 
 if __name__ == "__main__":
     sc = SparkSession.builder.appName("SparkDF").getOrCreate()
-    spark_df(sc)
+    spark_df(sc, "spark_features.json")
     # print(f"Count of items in DataFrame: {count}")
