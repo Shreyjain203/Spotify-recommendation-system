@@ -31,7 +31,7 @@ def upload_data():
 
     #Uploading data to GCS
     connection_string = ""
-    database_name = "spotify_recommenation"
+    database_name = "spotify_recommendation"
     collection_name = "data_dump"
     data_dump = read_from_gcs.read_from_gcs(filename = "data_dump.json")
     write_to_monogo_db.upload_data_to_mongo(data_dump, connection_string, database_name, collection_name)
@@ -39,7 +39,7 @@ def upload_data():
 def mongo_flow():
     mongo_params = {
         "client_url": "mongodb://localhost:27017/",
-        "db_name": "spotify_reccomendation",
+        "db_name": "spotify_recomendation",
         "collection_name": "user_data"
     }
     save_path = "feature_data.json"
