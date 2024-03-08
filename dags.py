@@ -39,7 +39,7 @@ def upload_data():
 def mongo_flow():
     mongo_params = {
         "client_url": "mongodb://localhost:27017/",
-        "db_name": "spotify_recomendation",
+        "db_name": "spotify_recommendation",
         "collection_name": "user_data"
     }
     save_path = "feature_data.json"
