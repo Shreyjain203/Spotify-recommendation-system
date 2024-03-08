@@ -13,7 +13,6 @@ save_path = "feature_data.json"
 
 load_json_data(**mongo_params, file_path="spotify_data.json")
 mongo_clean_data(**mongo_params, file_path=save_path)
-load_json_data(**mongo_params, file_path=save_path)
 mongo_aggregation(**mongo_params)
 
 feature_save_path = "model_features.json"
